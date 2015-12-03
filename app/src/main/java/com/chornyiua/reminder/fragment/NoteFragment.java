@@ -12,13 +12,13 @@ import com.chornyiua.reminder.R;
 /**
  * Created by ChornyiUA on 01.12.2015.
  */
-public class ExampleFragment extends Fragment {
-    private static final int EXAMPLE = R.layout.fragment_example;
+public class NoteFragment extends Fragment {
+    private static final int FRAGMENT_NOTE = R.layout.fragment_note;
     private View view;
 
-    public static ExampleFragment getInstance(){
+    public static NoteFragment getInstance(){
         Bundle args = new Bundle();
-        ExampleFragment fragment = new ExampleFragment();
+        NoteFragment fragment = new NoteFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -26,7 +26,7 @@ public class ExampleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(EXAMPLE, container, false);
+        view = inflater.inflate(FRAGMENT_NOTE, container, false);
         return view;
     }
 }

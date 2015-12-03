@@ -4,7 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.chornyiua.reminder.fragment.ExampleFragment;
+import com.chornyiua.reminder.fragment.BirthdayFragment;
+import com.chornyiua.reminder.fragment.NoteFragment;
+import com.chornyiua.reminder.fragment.ReminderFragment;
 
 /**
  * Created by ChornyiUA on 01.12.2015.
@@ -31,11 +33,11 @@ public class TabsPagerFragmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return ExampleFragment.getInstance();
+                return ReminderFragment.getInstance();
             case 1:
-                return ExampleFragment.getInstance();
+                return NoteFragment.getInstance();
             case 2:
-                return ExampleFragment.getInstance();
+                return BirthdayFragment.getInstance();
         }
         return null;
     }

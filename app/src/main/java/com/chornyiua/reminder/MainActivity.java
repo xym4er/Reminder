@@ -68,9 +68,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 drawerLayout.closeDrawers();
-                switch (item.getItemId()){
-                    case R.id.actionNavigationItem:
-                        showNatificationTab();
+                switch (item.getItemId()) {
+                    case R.id.notificationItem:
+                        showNotificationTab();
+                        break;
+                    case R.id.notesItem:
+                        showNotesTab();
+                        break;
+                    case R.id.birthdayItem:
+                        showBirthdayTab();
+                        break;
                 }
 
                 return true;
@@ -78,7 +85,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showNatificationTab(){
+    private void showNotificationTab(){
         viewPager.setCurrentItem(Constants.TAB_ONE);
+    }
+    private void showNotesTab(){
+        viewPager.setCurrentItem(Constants.TAB_TWO);
+    }
+    private void showBirthdayTab(){
+        viewPager.setCurrentItem(Constants.TAB_THREE);
     }
 }
