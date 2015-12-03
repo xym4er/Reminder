@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_warning_red_900_36dp"
+        android:id="@+id/birthday_item_avatar"
+        android:layout_margin="@dimen/standard_margin"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthday_item_name"
+        android:textSize="16sp"
+        android:text="Игорь"
+        android:layout_toRightOf="@id/birthday_item_avatar"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:textStyle="bold"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthday_item_surname"
+        android:textSize="16sp"
+        android:text="Петрович"
+        android:layout_toRightOf="@id/birthday_item_name"
+        android:layout_alignBottom="@+id/birthday_item_name"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:textStyle="bold"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthday_item_description"
+        android:text="день рождения день рождения день рождения день рождения день рождения день рождения день рождения"
+        android:layout_toRightOf="@id/birthday_item_avatar"
+        android:layout_below="@+id/birthday_item_name"
+        android:paddingBottom="@dimen/standard_margin"
+        android:layout_alignLeft="@+id/birthday_item_name"
+        android:layout_marginTop="@dimen/standard_margin"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/birthday_item_date"
+        android:text="01.01.1921"
+        android:layout_marginRight="@dimen/standard_margin_x2"
+        android:layout_alignParentRight="true"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/birthday_item_name"
+        />
+</RelativeLayout>
