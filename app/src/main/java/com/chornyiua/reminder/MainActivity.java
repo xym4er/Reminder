@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.chornyiua.reminder.adapter.TabsPagerFragmentAdapter;
+import com.chornyiua.reminder.adapters.TabsPagerFragmentAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

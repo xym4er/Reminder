@@ -1,4 +1,4 @@
-package com.chornyiua.reminder.adapter;
+package com.chornyiua.reminder.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
