@@ -56,7 +56,9 @@ public class BirthdayFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerClickListener(getContext()) {
             @Override
             public void onItemClick(RecyclerView recyclerView, View itemView, int position) {
-               // Toast.makeText(getContext(),"Clicked",Toast.LENGTH_SHORT).show();
+               // TODO: открывается editor
+
+
             }
 
             @Override

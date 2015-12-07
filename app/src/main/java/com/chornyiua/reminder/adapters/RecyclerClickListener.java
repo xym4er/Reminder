@@ -45,4 +45,6 @@ public abstract class RecyclerClickListener implements RecyclerView.OnItemTouchL
     }
 
     public abstract void onItemClick(RecyclerView recyclerView, View itemView, int position);
+
+
 }

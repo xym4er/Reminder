@@ -1,5 +1,9 @@
 package com.chornyiua.reminder.adapters;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +32,7 @@ public class RecyclerAdapterBirthday extends RecyclerView.Adapter<RecyclerAdapte
         public TextView tvBirthdaySurname;
         public TextView tvBirthdayDescription;
         public TextView tvBirthdayDate;
+        public View circle;
        // public ImageView ivBirthdayAvatar;
 
         public ViewHolder(View v) {
@@ -36,9 +41,12 @@ public class RecyclerAdapterBirthday extends RecyclerView.Adapter<RecyclerAdapte
             tvBirthdaySurname = ((TextView) v.findViewById(R.id.birthday_surname));
             tvBirthdayDescription = ((TextView) v.findViewById(R.id.birthday_description));
             tvBirthdayDate = ((TextView) v.findViewById(R.id.birthday_date));
+            circle = v.findViewById(R.id.birthday_avatar);
+            circle.setBackgroundColor(Color.parseColor("#665511"));
            // ivBirthdayAvatar = ((ImageView) v.findViewById(R.id.birthday_avatar));
 
         }
+
 
     }
 
@@ -56,7 +64,7 @@ public class RecyclerAdapterBirthday extends RecyclerView.Adapter<RecyclerAdapte
         holder.tvBirthdayName.setText(birthdayList.get(position).getName());
         holder.tvBirthdaySurname.setText(birthdayList.get(position).getSurname());
         holder.tvBirthdayDescription.setText(birthdayList.get(position).getDescription());
-        holder.tvBirthdayDate.setText(birthdayList.get(position).getDate()+"");
+        holder.tvBirthdayDate.setText(birthdayList.get(position).getDate() + "");
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.chornyiua.reminder;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -9,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.chornyiua.reminder.adapters.TabsPagerFragmentAdapter;
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int LAYOUT = R.layout.activity_main;
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +32,29 @@ public class MainActivity extends AppCompatActivity {
         initToolbar();
         initNavigationView();
         initTabs();
+        initFab();
 
 
+    }
+
+    private void initFab() {
+        fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (viewPager.getCurrentItem()) {
+                    case R.id.notificationItem:
+                        // TODO: add item in current list
+                        break;
+                    case R.id.notesItem:
+                        // TODO: add item in current list
+                        break;
+                    case R.id.birthdayItem:
+                        // TODO: add item in current list
+                        break;
+                }
+            }
+        });
     }
 
     private void initToolbar() {
