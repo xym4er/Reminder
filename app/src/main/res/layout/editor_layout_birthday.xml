@@ -10,7 +10,7 @@
         android:src="@mipmap/android_wallpaper"/>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="wrap_content"
         android:padding="@dimen/activity_vertical_margin">
         <View
             android:id="@+id/editor_circle"
@@ -18,11 +18,13 @@
             android:layout_height="48dp"
             android:background="@drawable/circle"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:transitionName="@string/transition_name_circle"/>
         <TextView
             android:id="@+id/editor_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:transitionName="@string/transition_name_name"
             android:text="Jonh"
             android:layout_toRightOf="@+id/editor_circle"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -54,6 +56,7 @@
 
             <TextView
                 android:id="@+id/editor_date"
+                android:transitionName="@string/transition_name_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/editor_date_label"

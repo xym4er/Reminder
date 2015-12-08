@@ -7,4 +7,7 @@
     <string name="view_navigation_close">Close</string>
     <string name="menu_item_birthday">Дни рождения</string>
     <string name="menu_item_notes">Записки</string>
+    <string name="transition_name_name">transition:NAME</string>
+    <string name="transition_name_date">transition:DATE</string>
+    <string name="transition_name_circle">transition:CIRCLE</string>
 </resources>

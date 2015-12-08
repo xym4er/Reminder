@@ -1,8 +1,12 @@
 package com.chornyiua.reminder.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.*;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.chornyiua.reminder.EditorActivity;
 import com.chornyiua.reminder.MainActivity;
 import com.chornyiua.reminder.R;
 import com.chornyiua.reminder.adapters.RecyclerAdapterBirthday;
@@ -43,38 +48,51 @@ public class BirthdayFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(FRAGMENT_BIRTHDAY, container, false);
 
-        List<BirthDay> birthDayList = getBirthdayList();
+        getBirthdayList();
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view_birthday);
         rvLayoutManager = new LinearLayoutManager(view.getContext());
 
 
         recyclerView.setLayoutManager(rvLayoutManager);
-        rvAdapter = new RecyclerAdapterBirthday(birthDayList);
+        rvAdapter = new RecyclerAdapterBirthday(BirthDay.BIRTHDAYS);
         recyclerView.setAdapter(rvAdapter);
         RecyclerView.ItemAnimator itemAnimator = new DefaultItemAnimator();
         recyclerView.setItemAnimator(itemAnimator);
-        recyclerView.addOnItemTouchListener(new RecyclerClickListener(getContext()) {
-            @Override
-            public void onItemClick(RecyclerView recyclerView, View itemView, int position) {
-               // TODO: открывается editor
+        recyclerView.addOnItemTouchListener(
+                new RecyclerClickListener(getActivity().getApplicationContext(), new RecyclerClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Intent intent = new Intent(getActivity().getApplicationContext(), EditorActivity.class);
+                        intent.putExtra(EditorActivity.ID, BirthDay.BIRTHDAYS.get(position).getId());
+
+                        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                // the context of the activity
+                                getActivity(),
+
+                                // For each shared element, add to this method a new Pair item,
+                                // which contains the reference of the view we are transitioning *from*,
+                                // and the value of the transitionName attribute
+                                new Pair<View, String>(view.findViewById(R.id.birthday_avatar),
+                                        getString(R.string.transition_name_circle)),
+                                new Pair<View, String>(view.findViewById(R.id.birthday_name),
+                                        getString(R.string.transition_name_name)),
+                                new Pair<View, String>(view.findViewById(R.id.birthday_date),
+                                        getString(R.string.transition_name_date))
+                        );
+                        ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+                    }
+                }));
 
 
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
 
         return view;
     }
 
-    private List<BirthDay> getBirthdayList (){
-        List<BirthDay> birthDayList = new ArrayList<>();
+    private void getBirthdayList (){
+
         for (int i = 0; i < 20; i++) {
-            birthDayList.add(new BirthDay(System.currentTimeMillis(),"Василий Уткин"+i));
+            BirthDay.BIRTHDAYS.add(new BirthDay(System.currentTimeMillis(),"Василий Уткин"+i));
         }
-        return birthDayList;
+
     }
 }
